@@ -4,16 +4,12 @@ from pysentiment2.base import STATIC_PATH, BaseDict
 
 class RN(BaseDict):
     """
-    Dictionary class for
-    Loughran and McDonald Financial Sentiment Dictionaries.
-    
-    See also https://www3.nd.edu/~mcdonald/Word_Lists.html
-    
-    The terms for the dictionary are stemmed by the default tokenizer.
+    Dictionary class for lexicon specified by Thomas Renault
     """
 
     def init_dict(self):
-        renault_df = pd.read_csv("C://Users//jackl//OneDrive//Documents//Harvard//Research//Greenwood//l2_lexicon.csv", sep = ';')
+        PATH = "C://Users//jackl//OneDrive//Documents//Harvard//Research//Greenwood//l2_lexicon.csv"
+        renault_df = pd.read_csv(PATH, sep = ';')
         pos_ren = list(renault_df[renault_df['sentiment'] == 'positive']['keyword'])
         neg_ren = list(renault_df[renault_df['sentiment'] == 'negative']['keyword'])
         
